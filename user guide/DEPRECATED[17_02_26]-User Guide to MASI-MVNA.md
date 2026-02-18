@@ -1,5 +1,5 @@
-# DEPRECATED User Guide to Multi-Value Krippendorff's Alpha via MASI Distances
-## IMPORTANT NOTE: This user guide is for a deprecated version of the code. All the instructions and code should still be relevant and can still be used, but please be aware that the author is no longer updating/upkeeping the deprecated code. New version(s) of the code contain large quality of life changes.
+# DEPRECATED [17_02_26] User Guide to Multi-Value Krippendorff's Alpha via MASI Distances
+## IMPORTANT NOTE: This user guide is for a deprecated version of the code as of [17_02_26]. All the instructions and code should still be relevant and can still be used, but please be aware that the author is no longer updating/upkeeping the deprecated code. New version(s) of the code contain large quality of life changes.
 ## Quickstart guide
 
 For those uninterested in details who simply want to know how to apply the code (although I would strongly suggest you read through the guide thoroughly before attempting to use the code), here is a quickstart guide:
@@ -203,6 +203,7 @@ If your data file has a different name, change contents of `read.csv()` to the a
 `load(file = "mvalpha.RData")`
 
 Line 61 saves the output of your MVNA calculation to a .RData file. Change the filename "*mvalpha.RData*" as appropriate. Line 62 loads a saved MVNA calculation from a .Rdata file. Change the filename "*mvalpha.RData*" as appropriate.
+
 
 
 
