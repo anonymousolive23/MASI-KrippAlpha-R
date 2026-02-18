@@ -1,5 +1,5 @@
 # MASI-KrippAlpha-R
-*Important dev note:* This package is currently under active construction. The code, sample data, and guides provided are for the purposes of enabling individuals to use the code that is already there for research purposes. As such, the code is functional, but not yet refined or complete. For individuals interested in applying the code, please see user guide/User Guide to MASI-MVNA.md
+*Important dev note:* This package is currently under active construction. The code, sample data, and guides provided are for the purposes of enabling individuals to use the code that is already there for research purposes. As such, the code is functional, but not yet refined or complete. For individuals interested in applying the code, please see https://github.com/anonymousolive23/MASI-KrippAlpha-R/blob/ddb9b450d49e142de7aa49c03bc7b449316ac739/user%20guide/User%20Guide%20to%20MASI-MVNA.md
 
 This package is intended as a way for R users to delegate the computation of Multi-Value Krippendorff's Alpha for nominal data to Python's NLTK module - an interrater agreement statistic. In doing so, it bypasses computational and temporal limitations on existing R packages, such as irr (https://cran.r-project.org/package=irr) and krippendorffsalpha (https://cran.r-project.org/package=krippendorffsalpha).
 
