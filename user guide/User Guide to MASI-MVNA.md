@@ -1,5 +1,22 @@
 # User Guide to Multi-Value Krippendorff's Alpha via MASI Distances
 
+## Quickstart guide
+
+For those uninterested in details who simply want to know how to apply the code (although I would strongly suggest you read through the guide thoroughly before attempting to use the code), here is a quickstart guide:
+1. Data should be formatted as follows:
+
+|         Coder_1        |         Coder_2        |
+|  --------------------- | ---------------------- |
+|     code_a\|code_b     |         code_a         |
+|     code_b\|code_c     | code_a\|code_b\|code_c |
+
+Use \| as separators between codes and _ to join spaces in words. Cells where coders did not find an appropriate code (could not code) should have a single \| as its content. Cells where coders did not code specific data (missingness) should be left blank. See also [here](https://github.com/anonymousolive23/MASI-KrippAlpha-R/blob/main/data/Data%20Format%20Example.csv).
+2. If data needs to be transformed from a [binary coding matrix](https://github.com/anonymousolive23/MASI-KrippAlpha-R/blob/main/data/Binary%20Coding%20Matrix%20Example.csv) to the format specified above, use [this](https://github.com/anonymousolive23/MASI-KrippAlpha-R/blob/main/R/Data%20Processing%20for%20MASI%20Distance.R). Dependencies are R packages `tidyr`, `dplyr`, `stats`, `psych`, and `janitor`.
+3. If data is formatted appropriately and just needs to be analysed, use [this](https://github.com/anonymousolive23/MASI-KrippAlpha-R/blob/main/R/MASI%20Distance%20MVNA.R). Dependencies are R packages `irrCAC`, `stringr`, and `reticulate`.
+4. Change working directories in `setwd()` as appropriate to a directory which contains all your necessary data files.
+5. Change miniconda directory in `reticulate::use_miniconda()` as appropriate to your miniconda installation.
+6. Change filenames in `read.csv()`, `save.image()`, and `load()` as appropriate; the former to your existing data files and the latter to filename appropriate for your project.
+
 ## Introduction
 
 This is a short guide for the use of the R code I wrote to calculate Krippendorff's Alpha via MASI distances. For technical details, see [here](https://www.cs.columbia.edu/nlp/papers/2006/passonneau_06.pdf).
@@ -185,3 +202,4 @@ If your data file has a different name, change contents of `read.csv()` to the a
 `load(file = "mvalpha.RData")`
 
 Line 61 saves the output of your MVNA calculation to a .RData file. Change the filename "*mvalpha.RData*" as appropriate. Line 62 loads a saved MVNA calculation from a .Rdata file. Change the filename "*mvalpha.RData*" as appropriate.
+
