@@ -24,11 +24,11 @@ This is a short guide for the use of the R code I wrote to calculate Krippendorf
 
 The main reason one would want to do this is to derive intercoder reliability/interannotater agreement/interrater agreement with qualitative coding which *DOES NOT ASSUME ORTHOGONALITY*. The reason you do not assume orthogonality can be multiple, but should be theoretically-driven. The outcome this technique yields can also be achieved using the r package [mvna](https://cran.r-project.org/package=mvna). The main difference being the code here bypasses computational limitations inherent to mvna, which calculates percentage disagreement through permutation computations. By contrast, my code delegates the computation to Python's [nltk](https://www.nltk.org/).
 
-This guide consists of two sets of R code, **Data Processing.R** and **MASI-MVNA.R**. Both are important and useful but only the latter is strictly necessary. As the names indicate, the former is for processing data into the necessary format, and the latter is for the actual computation.
+This guide consists of two sets of R code, [**Data Processing.R**](https://github.com/anonymousolive23/MASI-KrippAlpha-R/blob/b593a788111d444789b2d38dbb354d53d8ffef36/R/Data%20Processing.R) and [**MASI-MVNA.R**](https://github.com/anonymousolive23/MASI-KrippAlpha-R/blob/c02c92272c03a6cefcd81a588f79199099ef419a/R/MASI-MVNA.R). Both are important and useful but only the latter is strictly necessary. As the names indicate, the former is for processing data into the necessary format, and the latter is for the actual computation.
 
 ## Data Format
 
-*This description is given for the sake of verification and completeness. If you need to convert data from a binary coding matrix to the format specified, use* **Data Processing.R**.
+*This description is given for the sake of verification and completeness. If you need to convert data from a binary coding matrix to the format specified, use* [**Data Processing.R**](https://github.com/anonymousolive23/MASI-KrippAlpha-R/blob/b593a788111d444789b2d38dbb354d53d8ffef36/R/Data%20Processing.R).
 
 Your data should be in a Comma-Separated-Values (.csv) file. The data should consist of *i+1* rows - each *i* representing one piece of data, i.e., one participant response, paragraph, or whatever your data breakdown is - with *j* columns - each *j* representing one coder. The first row (*i*) of your file should be headers (i.e., ID labels for the coders).
 
@@ -38,9 +38,9 @@ If in a cell *ij* the coder *j* did not find a suitable code to apply to data *i
 
 *A visual example for the data format is given in file* **Data Format Example.csv**.
 
-## Data Processing.R
+## [Data Processing.R](https://github.com/anonymousolive23/MASI-KrippAlpha-R/blob/b593a788111d444789b2d38dbb354d53d8ffef36/R/Data%20Processing.R)
 
-*This R code is intended for converting a binary coding matrix to the format needed by* **MASI-MVNA.R**. *If your data is formatted properly, you may skip this section*.
+*This R code is intended for converting a binary coding matrix to the format needed by* [**MASI-MVNA.R**](https://github.com/anonymousolive23/MASI-KrippAlpha-R/blob/c02c92272c03a6cefcd81a588f79199099ef419a/R/MASI-MVNA.R). *If your data is formatted properly, you may skip this section*.
 
 A binary coding matrix is when data consists of *i+1* rows - each *i* representing one piece of data - and *j+1* columns - each *j* representing one code that could be applied. The first row (*i*) of your file should be headers (i.e., names for codes that can be applied) and the first column (*j*) of your file should be data IDs (i.e., IDs for each piece of data). You will notice this does not mention multiple coders. That is by design. *Each n* coder should have *n* binary coding matrix.
 
@@ -97,7 +97,7 @@ As above, you do not need to have 3 coders, remove or add more lines using the s
 
 If you have 2 coders, delete line 54. If you have more than 3 coders, duplicate line 54, substituting `Coder_3` with `Coder_n` each time.
 
-## MASI-MVNA.R
+## [MASI-MVNA.R](https://github.com/anonymousolive23/MASI-KrippAlpha-R/blob/c02c92272c03a6cefcd81a588f79199099ef419a/R/MASI-MVNA.R)
 
 *This R code is what calculates MASI Distance, before then converting to MVNA. Please read the following carefully before attempting to use the code.*
 
