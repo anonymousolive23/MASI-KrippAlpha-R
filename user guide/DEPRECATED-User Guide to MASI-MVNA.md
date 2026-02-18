@@ -1,5 +1,5 @@
-# User Guide to Multi-Value Krippendorff's Alpha via MASI Distances
-
+# DEPRECATED User Guide to Multi-Value Krippendorff's Alpha via MASI Distances
+## IMPORTANT NOTE: This user guide is for a deprecated version of the code. All the instructions and code should still be relevant and can still be used, but please be aware that the author is no longer updating/upkeeping the deprecated code. New version(s) of the code contain large quality of life changes.
 ## Quickstart guide
 
 For those uninterested in details who simply want to know how to apply the code (although I would strongly suggest you read through the guide thoroughly before attempting to use the code), here is a quickstart guide:
@@ -12,11 +12,11 @@ For those uninterested in details who simply want to know how to apply the code 
 
 Use \| as separators between codes and _ to join spaces in words. Cells where coders did not find an appropriate code (could not code) should have a single \| as its content. Cells where coders did not code specific data (missingness) should be left blank. See also [here](https://github.com/anonymousolive23/MASI-KrippAlpha-R/blob/main/data/Data%20Format%20Example.csv).
 
-2. If data needs to be transformed from a [binary coding matrix](https://github.com/anonymousolive23/MASI-KrippAlpha-R/blob/main/data/Binary%20Coding%20Matrix%20Example.csv) to the format specified above, use [this](https://github.com/anonymousolive23/MASI-KrippAlpha-R/blob/main/R/Data%20Processing%20for%20MASI%20Distance.R). Dependencies are R packages `tidyr`, `dplyr`, `stats`, `psych`, and `janitor`.
-3. If data is formatted appropriately and just needs to be analysed, use [this](https://github.com/anonymousolive23/MASI-KrippAlpha-R/blob/main/R/MASI%20Distance%20MVNA.R). Dependencies are R packages `irrCAC`, `stringr`, and `reticulate`.
-4. Change working directories in `setwd()` as appropriate to a directory which contains all your necessary data files.
-5. Change miniconda directory in `reticulate::use_miniconda()` as appropriate to your miniconda installation.
-6. Change filenames in `read.csv()`, `save.image()`, and `load()` as appropriate; the former to your existing data files and the latter to filename appropriate for your project.
+2. If data needs to be transformed from a [binary coding matrix](https://github.com/anonymousolive23/MASI-KrippAlpha-R/blob/main/data/Binary%20Coding%20Matrix%20Example.csv) to the format specified above, use [this](https://github.com/anonymousolive23/MASI-KrippAlpha-R/blob/d0cdcbcba8bad036d11ffbb2572013212cd9b2e6/R/DEPRECATED-Data%20Processing.R). Dependencies are R packages `tidyr`, `dplyr`, `stats`, `psych`, and `janitor`.
+4. If data is formatted appropriately and just needs to be analysed, use [this](https://github.com/anonymousolive23/MASI-KrippAlpha-R/blob/4df9877939e7d729ad8ccb345e0ec39a7e212641/R/DEPRECATED-MASI-MVNA.R). Dependencies are R packages `irrCAC`, `stringr`, and `reticulate`.
+5. Change working directories in `setwd()` as appropriate to a directory which contains all your necessary data files.
+6. Change miniconda directory in `reticulate::use_miniconda()` as appropriate to your miniconda installation.
+7. Change filenames in `read.csv()`, `save.image()`, and `load()` as appropriate; the former to your existing data files and the latter to filename appropriate for your project.
 
 ## Introduction
 
@@ -38,9 +38,9 @@ If in a cell *ij* the coder *j* did not find a suitable code to apply to data *i
 
 *A visual example for the data format is given in file* **Data Format Example.csv**.
 
-## Data Processing for MASI Distance.R
+## DEPRECATED-Data Processing.R
 
-*This R code is intended for converting a binary coding matrix to the format needed by* **MASI Distance MVNA.R**. *If your data is formatted properly, you may skip this section*.
+*This R code is intended for converting a binary coding matrix to the format needed by* **DEPRECATED-MASI-MVNA.R**. *If your data is formatted properly, you may skip this section*.
 
 A binary coding matrix is when data consists of *i+1* rows - each *i* representing one piece of data - and *j+1* columns - each *j* representing one code that could be applied. The first row (*i*) of your file should be headers (i.e., names for codes that can be applied) and the first column (*j*) of your file should be data IDs (i.e., IDs for each piece of data). You will notice this does not mention multiple coders. That is by design. *Each n* coder should have *n* binary coding matrix.
 
@@ -140,7 +140,7 @@ These lines duplicate the code from line 49. Only change if you have a different
 
 If you have 2 coders, delete line 54. If you have more than 3 coders, duplicate line 54, substituting `Coder_3` with `Coder_n` each time.
 
-## MASI Distance MVNA.R
+## DEPRECATED-MASI-MVNA.R
 
 *This R code is what calculates MASI Distance, before then converting to MVNA. Please read the following carefully before attempting to use the code.*
 
@@ -203,6 +203,7 @@ If your data file has a different name, change contents of `read.csv()` to the a
 `load(file = "mvalpha.RData")`
 
 Line 61 saves the output of your MVNA calculation to a .RData file. Change the filename "*mvalpha.RData*" as appropriate. Line 62 loads a saved MVNA calculation from a .Rdata file. Change the filename "*mvalpha.RData*" as appropriate.
+
 
 
 
