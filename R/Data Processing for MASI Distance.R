@@ -5,10 +5,10 @@ library(psych)
 library(janitor)
 
 #setup
-setwd("C:/Users/ghtan/Downloads/Research Internship/Open Secrets Data/Intercoder Reliability")
-Coder_1 = read.csv("Leo_Code-Document_Analysis(Final).csv")
-Coder_2 = read.csv("MS_Random Coding Subset Combined(LeoModFinal).csv")
-Coder_3 = read.csv("SV_Random Coding Subset Combined(LeoModFinal).csv")
+setwd("your working directory")
+Coder_1 = read.csv("your binary coding matrix 1.csv")
+Coder_2 = read.csv("your binary coding matrix 2.csv")
+Coder_3 = read.csv("your binary coding matrix 3.csv")
 
 #cleaning names
 names(Coder_1) <- gsub("\\.", "_", names(Coder_1))
@@ -55,5 +55,6 @@ newdf = merge(newdf, Coder_3, by="ResponseID")
 
 newdf = newdf[-1]
 newdf = replace(newdf, newdf=="", "|")
+
 
 write.csv(newdf, "Combined Coding Matrix for MVAlpha.csv", row.names = F)
