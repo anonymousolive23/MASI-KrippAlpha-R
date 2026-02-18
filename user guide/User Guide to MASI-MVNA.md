@@ -44,6 +44,8 @@ If in a cell *ij* the coder *j* did not find a suitable code to apply to data *i
 
 A binary coding matrix is when data consists of *i+1* rows - each *i* representing one piece of data - and *j+1* columns - each *j* representing one code that could be applied. The first row (*i*) of your file should be headers (i.e., names for codes that can be applied) and the first column (*j*) of your file should be data IDs (i.e., IDs for each piece of data). You will notice this does not mention multiple coders. That is by design. *Each n* coder should have *n* binary coding matrix.
 
+In each cell (combination of *ij*) outside of the first row (*i*) and first column (*j*), you should have 1 of 3 cell entries: **1** = if the code (*j*) **WAS** coded in the data unit (*i*), **0** = if the code (*j*) **WAS NOT** coded in the data unit (*i*), and left **blank** if the data unit (*i*) **WAS NOT CODED BY THE CODER**. Thus, every cell = 0 in a row where coders could not apply any of the available codes, and every cell is blank in a row where the coder did not code the data unit. This distinction is important because statistically, we want to distinguish between instances where no code is applicable and where coding is missing.
+
 *A visual example for the binary coding matrix is given in file* **Binary Coding Matrix Example.csv**.
 
 This code requires you to have installed R packages `tidyr`, `dplyr`, `stats`, `psych`, and `janitor` prior to starting. If you are missing any of the packages, use "install.packages(*"package"*)" for the relevant package, substituting *"package"* with the name of the package.
@@ -58,11 +60,9 @@ Change contents of `setwd()` to the working directory in which you have all your
 
 -   Lines 9-11:
 
-`Coder_1 = read.csv("your binary coding matrix 1.csv")`
-
-`Coder_2 = read.csv("your binary coding matrix 2.csv")`
-
-`Coder_3 = read.csv("your binary coding matrix 3.csv")`
+`Coder_1 = read.csv("your binary coding matrix 1.csv")
+Coder_2 = read.csv("your binary coding matrix 2.csv")
+Coder_3 = read.csv("your binary coding matrix 3.csv")`
 
 Change the contents of `read.csv()` to file names for the binary coding matrices. You do not need to have 3 coders, remove or add more lines using the same format as needed.
 
