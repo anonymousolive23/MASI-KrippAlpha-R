@@ -2,13 +2,13 @@ library(irrCAC)
 library(stringr)
 
 #setup
-setwd("C:/Users/ghtan/Downloads/Research Internship/Open Secrets Data/Intercoder Reliability")
+setwd("your working directory")
 getOption("max.print")
 options("max.print"=5000)
 
 #setup to use reticulate and miniconda
 reticulate::install_miniconda() #install miniconda. paste the directory output from R after installation is done in the line below for condaenv
-reticulate::use_miniconda(condaenv = "C:/Users/ghtan/AppData/Local/r-miniconda", required = TRUE) #force R to use miniconda
+reticulate::use_miniconda(condaenv = "your miniconda installation directory", required = TRUE) #force R to use miniconda
 reticulate::py_config() #check that this went correctly - great!
 
 library(reticulate) #import full list of reticulate functions. IMPORTANT: DO NOT DO THIS BEFORE LINES ABOVE OR R WILL USE THE DEFAULT PYTHON INSTALL ON YOUR BASE MACHINE; IF THERE IS NO DEFAULT PYTHON INSTALL THEN IT WILL FAIL
@@ -59,4 +59,5 @@ mv_alpha$est
 
 ##############################################################################################################################
 save.image(file = "mvalpha.RData")
+
 load(file = "mvalpha.RData")
