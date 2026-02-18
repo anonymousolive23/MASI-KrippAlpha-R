@@ -52,17 +52,17 @@ This code requires you to have installed R packages `tidyr`, `dplyr`, `stats`, `
 
 -   Line 8:
 
-`setwd("C:/Users/ghtan/Downloads/Research Internship/Open Secrets Data/Intercoder Reliability")`
+`setwd("your working directory")`
 
 Change contents of `setwd()` to the working directory in which you have all your binary coding matrix files.
 
 -   Lines 9-11:
 
-`Coder_1 = read.csv("Leo_Code-Document_Analysis(Final).csv")`
+`Coder_1 = read.csv("your binary coding matrix 1.csv")`
 
-`Coder_2 = read.csv("MS_Random Coding Subset Combined(LeoModFinal).csv")`
+`Coder_2 = read.csv("your binary coding matrix 2.csv")`
 
-`Coder_3 = read.csv("SV_Random Coding Subset Combined(LeoModFinal).csv")`
+`Coder_3 = read.csv("your binary coding matrix 3.csv")`
 
 Change the contents of `read.csv()` to file names for the binary coding matrices. You do not need to have 3 coders, remove or add more lines using the same format as needed.
 
@@ -156,7 +156,7 @@ You may note that while R package `reticulate` is needed for the code, we do not
 
 -   Line 5:
 
-`setwd("C:/Users/ghtan/Downloads/Research Internship/Open Secrets Data/Intercoder Reliability")`
+`setwd("your working directory")`
 
 Change contents of `setwd()` to the working directory in which you have all your binary coding matrix files.
 
@@ -168,17 +168,17 @@ Change contents of `setwd()` to the working directory in which you have all your
 
 -   Lines 11-12:
 
-`reticulate::use_miniconda(condaenv = "C:/Users/ghtan/AppData/Local/r-miniconda", required = TRUE) #force R to use miniconda`
+`reticulate::use_miniconda(condaenv = "your miniconda installation directory", required = TRUE) #force R to use miniconda`
 
 `reticulate::py_config() #check that this went correctly - great!`
 
 As mentioned in the line above, change the contents of `reticulate::use_miniconda()` to `(condaenv = "your directory", required = TRUE)`. Line 11 forces `reticulate` to use your miniconda installation, and line 12 extracts the directories that `reticulate` has attached to. The output should look something like:
 
-  python: C:/Users/ghtan/AppData/Local/r-miniconda/python.exe
+  python: C:/Users/username/AppData/Local/r-miniconda/python.exe
 
-  libpython: C:/Users/ghtan/AppData/Local/r-miniconda/python312.dll
+  libpython: C:/Users/username/AppData/Local/r-miniconda/python312.dll
 
-  pythonhome: C:/Users/ghtan/AppData/Local/r-miniconda
+  pythonhome: C:/Users/username/AppData/Local/r-miniconda
 
   version: 3.12.12 \| packaged by conda-forge \| (main, Oct 22 2025, 23:13:34) [MSC v.1944 64 bit (AMD64)]
 
@@ -203,5 +203,6 @@ If your data file has a different name, change contents of `read.csv()` to the a
 `load(file = "mvalpha.RData")`
 
 Line 61 saves the output of your MVNA calculation to a .RData file. Change the filename "*mvalpha.RData*" as appropriate. Line 62 loads a saved MVNA calculation from a .Rdata file. Change the filename "*mvalpha.RData*" as appropriate.
+
 
 
