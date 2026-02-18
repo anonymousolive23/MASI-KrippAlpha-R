@@ -60,40 +60,40 @@ Change contents of `setwd()` to the working directory in which you have all your
 
 -   Lines 9-11:
 
-`Coder_1 = read.csv("your binary coding matrix 1.csv")
-Coder_2 = read.csv("your binary coding matrix 2.csv")
-Coder_3 = read.csv("your binary coding matrix 3.csv")`
+`Coder_1 = read.csv("your binary coding matrix 1.csv")`
+`Coder_2 = read.csv("your binary coding matrix 2.csv")`
+`Coder_3 = read.csv("your binary coding matrix 3.csv")`
 
 Change the contents of `read.csv()` to file names for the binary coding matrices. You do not need to have 3 coders, remove or add more lines using the same format as needed.
 
 -   Lines 21-23:
 
-`Coder_1 = clean_colnames(Coder_1)
-Coder_2 = clean_colnames(Coder_2)
-Coder_3 = clean_colnames(Coder_3)`
+`Coder_1 = clean_colnames(Coder_1)`
+`Coder_2 = clean_colnames(Coder_2)`
+`Coder_3 = clean_colnames(Coder_3)`
 
 As above, you do not need to have 3 coders, remove or add more lines using the same format as needed. This section uses a function `clean_colnames` defined in lines 21-23, which substitutes any instances of . with _ and removes any instances that end in _. This is an optional function but one which I find useful, since when importing codes R substitutes spaces between characters with . and spaces at the end of characters with _. This function cleans that up
 
 -   Lines 44-46:
 
-`Coder_1 = condense_codes(Coder_1, "ResponseID")
-Coder_2 = condense_codes(Coder_2, "ResponseID")
-Coder_3 = condense_codes(Coder_3, "ResponseID")
-`
+`Coder_1 = condense_codes(Coder_1, "ResponseID")`
+`Coder_2 = condense_codes(Coder_2, "ResponseID")`
+`Coder_3 = condense_codes(Coder_3, "ResponseID")`
+
 As above, you do not need to have 3 coders, remove or add more lines using the same format as needed. This section uses a function `condense_codes` defined in lines 26-42, which extracts all unique colnames in your binary coding matrix except for your id_col, which we specify here as `"ResponseID"`. It then checks across each row in your binary coding matrix: if cell contents = "1", the code is documented for that row (codes are separated by "\|") in a new column `"Codes"`; if all cells in a row = "0", "|\" is imputed in the column `"Codes"` to represent "no code applicable"; if all cells in a row are blank, the column `"Codes"` is left blank. This distinguishes between codes that are present, no codes being applicable for a specific data unit, or missingness (i.e., coder did not code a specific data unit). The function then removes all columns redundant for future analyses and retains id_col and `"Codes"`.
 
 -   Lines 49-51:
 
-`colnames(Coder_1) = c("ResponseID", "Coder_1")
-colnames(Coder_2) = c("ResponseID", "Coder_2")
-colnames(Coder_3) = c("ResponseID", "Coder_3")`
+`colnames(Coder_1) = c("ResponseID", "Coder_1")`
+`colnames(Coder_2) = c("ResponseID", "Coder_2")`
+`colnames(Coder_3) = c("ResponseID", "Coder_3")`
 
 As above, you do not need to have 3 coders, remove or add more lines using the same format as needed. *In a future iteration these lines will be integrated into function* `condense_codes` *defined in lines 26-42. I have tried and failed a few times to implement the integration and have given up on that for now*.
 
 -   Lines 53-54:
 
-`newdf = merge(Coder_1, Coder_2, by = "ResponseID")
-newdf = merge(newdf, Coder_3, by="ResponseID")`
+`newdf = merge(Coder_1, Coder_2, by = "ResponseID")`
+`newdf = merge(newdf, Coder_3, by="ResponseID")`
 
 If you have 2 coders, delete line 54. If you have more than 3 coders, duplicate line 54, substituting `Coder_3` with `Coder_n` each time.
 
@@ -125,8 +125,8 @@ Change contents of `setwd()` to the working directory in which you have your com
 
 -   Lines 11-12:
 
-`reticulate::use_miniconda(condaenv = "your miniconda installation directory", required = TRUE) #force R to use miniconda
-reticulate::py_config() #check that this went correctly - great!`
+`reticulate::use_miniconda(condaenv = "your miniconda installation directory", required = TRUE) #force R to use miniconda`
+`reticulate::py_config() #check that this went correctly - great!`
 
 As mentioned in the line above, change the contents of `reticulate::use_miniconda()` to `(condaenv = "your directory", required = TRUE)`. Line 11 forces `reticulate` to use your miniconda installation, and line 12 extracts the directories that `reticulate` has attached to. The output should look something like:
 
@@ -154,7 +154,7 @@ If your data file has a different name, change contents of `read.csv()` to the a
 
 -   Lines 62-63
 
-`save.image(file = "mvalpha.RData")
-load(file = "mvalpha.RData")`
+`save.image(file = "mvalpha.RData")`
+`load(file = "mvalpha.RData")`
 
 Line 62 saves the output of your MVNA calculation to a .RData file. Change the filename "*mvalpha.RData*" as appropriate. Line 63 loads a saved MVNA calculation from a .Rdata file. Change the filename "*mvalpha.RData*" as appropriate.
