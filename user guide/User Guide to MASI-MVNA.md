@@ -36,7 +36,7 @@ In each cell (combination of *ij*), you should include all the codes applied to 
 
 If in a cell *ij* the coder *j* did not find a suitable code to apply to data *i* (no code applicable), enter your separator "\|". If in a cell *ij* the coder *j* did not code the data *i* (missingness), leave cell blank.
 
-*A visual example for the data format is given in file* **Data Format Example.csv**.
+*A visual example for the data format is given in file* [**Data Format Example.csv**](https://github.com/anonymousolive23/MASI-KrippAlpha-R/blob/f5df2b3d22ce293599515effdd6a07354ed1c7d6/data/Data%20Format%20Example.csv).
 
 ## [Data Processing.R](https://github.com/anonymousolive23/MASI-KrippAlpha-R/blob/b593a788111d444789b2d38dbb354d53d8ffef36/R/Data%20Processing.R)
 
@@ -46,7 +46,7 @@ A binary coding matrix is when data consists of *i+1* rows - each *i* representi
 
 In each cell (combination of *ij*) outside of the first row (*i*) and first column (*j*), you should have 1 of 3 cell entries: **1** = if the code (*j*) **WAS** coded in the data unit (*i*), **0** = if the code (*j*) **WAS NOT** coded in the data unit (*i*), and left **blank** if the data unit (*i*) **WAS NOT CODED BY THE CODER**. Thus, every cell = 0 in a row where coders could not apply any of the available codes, and every cell is blank in a row where the coder did not code the data unit. This distinction is important because statistically, we want to distinguish between instances where no code is applicable and where coding is missing.
 
-*A visual example for the binary coding matrix is given in file* **Binary Coding Matrix Example.csv**.
+*A visual example for the binary coding matrix is given in file* [**Binary Coding Matrix Example.csv**](https://github.com/anonymousolive23/MASI-KrippAlpha-R/blob/f5df2b3d22ce293599515effdd6a07354ed1c7d6/data/Binary%20Coding%20Matrix%20Example.csv).
 
 This code requires you to have installed R packages `tidyr`, `dplyr`, `stats`, `psych`, and `janitor` prior to starting. If you are missing any of the packages, use "install.packages(*"package"*)" for the relevant package, substituting *"package"* with the name of the package.
 
