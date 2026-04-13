@@ -39,7 +39,7 @@ MASI_dist = function(x, y, sep = " "){
 df = read.csv("Combined Coding Matrix for MVAlpha.csv") #import ALL codes, preprocessed to contain coders by column and units by row
 
 compute_weights = function(df, sep = "|") {
-  all_codes = unique(unlist(merge)) #create a vector of all the unique labels (codes) in the dataset we imported
+  all_codes = unique(unlist(df)) #create a vector of all the unique labels (codes) in the dataset we imported
   alpha_mat = matrix( #create an empty matrix which:
     nrow = length(all_codes), #has nrow = the number of all the unique codes we extracted above
     ncol = length(all_codes), #has ncol = the number of all the unique codes we extracted above
